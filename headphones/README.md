@@ -10,7 +10,7 @@
 
 ###
 
-<p align="left">✨ Implement a design from scratch for Headphones website<br>📚 I'm currently learning ALX Africa<br>🎯 Goals: to become Full-Stack Software Developer</p>
+<p align="left">✨ Implement a design from scratch for Headphones website<br>📚 I'm currently learning ALX Africa<br>🎯 Goals: Full-Stack Software Developer</p>
 
 ###
 
