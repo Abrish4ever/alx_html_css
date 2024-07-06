@@ -1,0 +1,647 @@
+/* Reset default styles
+---------------------------------------------------------------*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+/* Global stayle
+---------------------------------------------------------------*/
+:root {
+    --white: #FFFFFF;
+    --red: #FF6565;
+
+    --toggle-top: 60px;
+    --toggle-left: 41px;
+
+
+    --checkbox-width: 40px;
+    --checkbox-hight: 32px;
+    --checkbox-top: -7px;
+    --checkbox-left: -3px;
+
+    --span-width: 33px;
+    --span-height: 4px;
+    --span-mb: 5px;
+
+    --menu-link-width: 300px;
+    --menu-link-height: 100vh;
+
+
+
+}
+@font-face {
+    font-family: 'Source sans pro';
+    src: url(font/SourceSansPro-Regular.otf);
+}
+html,
+body {
+overflow-x: hidden;
+}
+
+/* Header section styles
+----------------------------------------------------------------*/
+header {
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/headphones_hero_1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+}
+
+.logo {
+    width: 180px;
+    height: 36px;
+}
+.nav-link {
+    display: flex;
+    list-style: none;
+}
+
+.nav-link li {
+    padding-left: 1.5rem;
+}
+
+.nav-link li a {
+    text-decoration: none;
+    font-family: 'Source sans pro';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.nav-link li a:hover {
+    color: var(--red);
+}
+
+/* Toggle Menu style
+===================================================================*/
+.checkbox, .menu-icon {
+    display: none;
+}
+.checkbox + .menu-icon .menu-line {
+    position: absolute;
+    left: 5%;
+    width: 18px;
+    height: 3px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all .2s;
+    cursor: pointer;
+}
+.checkbox + .menu-icon .menu-line::before {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+    border-radius: 2px;
+    transform: translateY(-8px);
+    display: block;
+    transition: all .2s;
+    cursor: pointer;
+}
+.checkbox + .menu-icon .menu-line::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+    border-radius: 5px;
+    transform: translateY(8px);
+    display: block;
+    transition: all .2s;
+    cursor: pointer;
+}
+.checkbox:checked + .menu-icon .menu-line {
+    transform: translateX(-18px);
+    background: transparent;
+}
+
+.checkbox:checked + .menu-icon .menu-line::before {
+    transform: rotate(45deg) translate(15px, -15px);
+}
+
+.checkbox:checked + .menu-icon .menu-line::after {
+    transform: rotate(-45deg) translate(15px, 15px);
+}
+/* Call to action part
+===================================================================*/
+.call-to-action {
+    display: block;
+    position: absolute;
+    place-content: center;
+    top: 45%;
+    left: 24%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 637px;
+    height: 313px;
+}
+.call-to-action h1 {
+    color: var(--white);
+    text-align: center;
+    font-family: 'Source sans pro';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.call-to-action p {
+    color: var(--white);
+    font-family: 'Source sans pro';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+    text-align: center;
+}
+.call-to-action h3 {
+    color: var(--white);
+    text-align: center;
+    font-family: 'Source sans pro';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.btn {
+    margin-top: 40px;
+    margin-bottom: 65px;
+    width: 162px;
+    height: 44px;
+    border-radius: 24px;
+    background-color: var(--red);
+    color: var(--white);
+    color: var(--white);
+    text-align: center;
+    font-family: 'Source sans pro';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-style: none;
+}
+.btn:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+/* Responsive header Media queries 
+============================================================================ */
+@media only screen and (max-width: 765px) {
+    html {
+        font-size: 87.5%;
+    }
+
+    header {
+        background: url(images/headphones_hero_1.jpg) no-repeat 35% 0;
+    }
+
+    nav {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .checkbox + .menu-icon + nav .nav-link {
+        flex-direction: column;
+        justify-content: space-around;
+        display: none;
+    }
+
+    .checkbox:checked + .menu-icon + nav .nav-link {
+        display: flex;
+    }
+
+    .checkbox:checked + .menu-icon + nav + .call-to-action {
+        top: 60%;
+    }
+    
+    .nav-link li {
+        margin: 2rem;
+    }
+    
+    .logo {
+        margin-top: 20px;
+    }
+
+    .menu-icon {
+        display: block;
+        position: absolute;
+        top: 5.7%; 
+        left: 10%;
+    }
+}
+
+/* Responsive header Media queries for width<480
+============================================================================ */
+@media only screen  and (max-width: 480px) {
+    html {
+        font-size: 87.5%;
+    }
+
+    .container {
+        top: 35%;
+    }
+
+    header {
+        background: url(images/headphones_hero_1.jpg) no-repeat 35% 0;
+    }
+}
+
+
+
+
+/* Toggle Menu style
+===================================================================*/
+/*.menu-toggle {
+display: none;
+
+position: relative;
+top: var(--toggle-top);
+left: var(--toggle-left);
+z-index: 1;
+}
+.menu-toggle input {
+display: block;
+width: var(--checkbox-width);
+height: var(--checkbox-hight);
+position: absolute;
+top: var(--checkbox-top);
+left: var(--checkbox-left);
+cursor: pointer;
+z-index: 2;
+opacity: 0;
+}
+.menu-toggle span {
+display: block;
+width: var(--span-width);
+height: var(--span-height);
+background-color: var(--white);
+margin-bottom: var(--span-mb);
+position: relative;
+position: relative;
+z-index: 1;
+transform-origin: var(--span-height);
+transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1), background 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.menu-toggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg);
+    background: var(--white);
+}
+.menu-toggle input:checked ~ span:nth-last-child(2) {
+    opacity: 0;
+}
+.menu-toggle input:checked ~ span:nth-last-child(1) {
+    transform: rotate(-45deg);
+}
+/*
+.menu-link {
+    position: absolute;
+    width: var(--menu-link-width);
+    height: var(--menu-link-height);
+    margin: -100px 0 0 -50px;
+    padding: 125px 50px 50px 50px;
+    list-style-type: none;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}*/
+/* Navigation Styles
+============================================================================== */
+/*nav {
+    width: 1000px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 41px;
+    margin-left: 200px;   
+}
+.logo {
+    width: 160px;
+    height: 31px;
+}
+.menu-link {
+    display: flex;
+    list-style: none;
+    padding-right: 12.4rem;  
+}
+.menu-link li {
+    padding-left: 2.5rem;
+}
+.menu-link li a {
+    text-decoration: none;
+    font-family: 'Source sans pro';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--white);
+}
+.menu-link li a:hover {
+    color: var(--red);
+    opacity: 0.9;
+}
+.call-to-action {
+    display: block;
+    position: absolute;
+    place-content: center;
+    top: 45%;
+    left: 24%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 637px;
+    height: 313px;
+}
+.call-to-action h1 {
+    color: var(--white);
+    text-align: center;
+    font-family: 'Source sans pro';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.call-to-action p {
+    color: var(--white);
+    font-family: 'Source sans pro';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+    text-align: center;
+}
+.call-to-action h3 {
+    color: var(--white);
+    text-align: center;
+    font-family: 'Source sans pro';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.btn {
+    margin-top: 40px;
+    margin-bottom: 65px;
+    width: 162px;
+    height: 44px;
+    border-radius: 24px;
+    background-color: var(--red);
+    color: var(--white);
+    color: var(--white);
+    text-align: center;
+    font-family: 'Source sans pro';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-style: none;
+}
+.btn:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+/* Responsive header Media queries 
+============================================================================ */
+/*@media only screen and (max-width: 765px) {
+    html {
+        font-size: 87.5%;
+    }
+
+    header {
+        background: url(images/headphones_hero_1.jpg) no-repeat 35% 0;
+    }
+    nav {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 2.5rem 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+    .menu-toggle, nav .menu-link {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        display: none;
+
+    }
+    .menu-toggle input:checked, .menu-toggle, nav .menu-link {
+        display: flex;
+    }
+    .menu-toggle input:checked, nav, .call-to-action {
+        top: 60%;
+
+    }
+    .menu-link li {
+        margin: 2rem;
+    }
+    .logo {
+        margin-top: 15px;
+    }
+    .menu-toggle span {
+        display: block;
+        position: absolute;
+        top: 5.7%; 
+        left: 10%;
+    }
+}
+/* Responsive Media queries for width<480
+==================================================================================*/
+/*@media only screen  and (max-width: 480px) {
+    html {
+        font-size: 87.5%;
+    }
+
+    .call-to-action {
+        top: 35%;
+    }
+
+    header {
+        background: url(images/headphones_hero_1.jpg) no-repeat 35% 0;
+    }
+}
+/*
+.menu-link {
+    position: absolute;
+    width: var(--menu-link-width);
+    height: var(--menu-link-height);
+    margin: -100px 0 0 -50px;
+    padding: 125px 50px 50px 50px;
+    list-style-type: none;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+.menu-toggle input:checked, .menu-link {
+    transform: none;
+}*/
+
+
+/*header {
+    background-image: url(images/headphones_hero_1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    min-height: 933px; 
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 199px;
+}
+.menu {
+    display: none;
+    color: var(--white);
+    margin-top: 0px;
+    margin-left: 0px;
+}
+nav img {
+    width: 160.96px;
+    height: 31.18px;
+    margin-top: 30px;
+    margin-left: 200.61px;
+}
+.nav-link .link {
+    float: right;
+    list-style-type: none;
+    margin-top: 39px;
+    margin-left: 41px;
+}
+.nav-link .link a {
+    color: #fff;
+    text-decoration: none;
+    font-family: SourceSansPro;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.link a:hover {
+    color: var(--red);
+    opacity: 0.9;
+}
+.call-to-action {
+    position: absolute;
+    place-content: center;
+    top: 46%;
+    left: 34%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 637px;
+    height: 313px;
+}
+.call-to-action h1 {
+    color: var(--white);
+    text-align: center;
+    font-family: SourceSansProSourceSansPro;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.call-to-action p {
+    color: var(--white);
+    font-family: SourceSansPro;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+    text-align: center;
+}
+.call-to-action h4 {
+    color: var(--white);
+    text-align: center;
+    font-family: SourceSansPro;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.btn {
+    margin-top: 40px;
+    margin-bottom: 65px;
+    width: 162px;
+    height: 44px;
+    border-radius: 24px;
+    background-color: var(--red);
+    color: #FFF;
+    color: var(--white);
+    text-align: center;
+    font-family: SourceSansPro;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-style: none;
+}
+.btn:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+@media screen and (max-width: 480px) {
+    header {
+        display: flex;
+        width: 80%;
+    }
+    .menu {
+        display: block;
+        padding-top: 40px;
+        padding-left: 40px;
+    }
+    .nav-link {
+        display: block;
+        padding: 85px;
+        
+    }
+    .btn {
+        display: block;
+    }
+    .nav-link .link.nav-link {
+        color: var(--accent-color);
+        display: block;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    
+} */
